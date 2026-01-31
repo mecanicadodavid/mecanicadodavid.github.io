@@ -7,7 +7,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("https://images.unsplash.com/photo-1549047608-55b2fd4b8427?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("image/image-hero.png");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
