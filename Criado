@@ -1,0 +1,35 @@
+
+* {
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+}
+
+.rating-badge {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+     background-color: rgba(24, 24, 27, 0.8);
+     backdrop-filter: blur(4px);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     padding: 0.5rem 1rem;
+     border-radius: 0.25rem;
+}
+
+.stars-container {
+     display: flex;
+}
+
+.star-icon {
+     width: 16px;
+     height: 16px;
+     fill: rgb(250, 204, 21);
+     color: rgb(250, 204, 21);
+}
+
+.rating-text {
+     color: rgb(212, 212, 216);
+     font-size: 16px;
+     line-height: 1.25rem;
+     font-weight: 500;
+}

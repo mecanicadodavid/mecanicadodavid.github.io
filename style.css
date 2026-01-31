@@ -1,5 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        *
+html, body {
+  background-color: rgb(9, 9, 11);
+}
+body {
+  font-family: 'Manrope';
+}
+
+
         /* Hero Section */
         .hero-section {
             position: relative;
@@ -52,15 +64,15 @@
         }
 
         .star-icon {
-            width: 1rem;
-            height: 1rem;
+            width: 0.2rem;
+            height: 0.2rem;
             fill: rgb(250, 204, 21);
             color: rgb(250, 204, 21);
         }
 
         .rating-text {
             color: rgb(212, 212, 216);
-            font-size: 0.875rem;
+            font-size: 14px;
             line-height: 1.25rem;
             font-weight: 500;
         }
@@ -986,6 +998,7 @@
         .cta-section {
             background-color: rgb(37, 99, 235);
             padding: 5rem 0;
+            
         }
 
         .container {
@@ -1290,4 +1303,4 @@
                 padding-right: 2rem;
             }
         }
-    
+      
