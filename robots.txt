@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://betioli.github.io/Mec-nica/sitemap.xml
+Sitemap: https://mecanicadodavid.github.io/sitemap.xml
