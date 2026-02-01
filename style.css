@@ -33,7 +33,7 @@ html, body {
   background-color: rgb(9, 9, 11);
 }
 body {
-  font-family: 'Manrope';
+  font-family: 'Manrope', sans-serif;
 }
 
 
@@ -88,9 +88,9 @@ body {
             display: flex;
         }
 
-        .star-icon {
-            width: 0.2rem;
-            height: 0.2rem;
+        .hero-section .star-icon {
+            width: 16px;
+            height: 16px;
             fill: rgb(250, 204, 21);
             color: rgb(250, 204, 21);
         }
@@ -334,7 +334,7 @@ body {
             opacity: 1;
         }
 
-        .section-subtitle {
+        .social-proof-section-subtitle {
             font-size: 0.875rem;
             line-height: 1.25rem;
             font-weight: 500;
@@ -343,9 +343,10 @@ body {
             color: rgb(113, 113, 122);
             margin-bottom: 1rem;
             opacity: 1;
+            text-align: center;
         }
 
-        .section-title {
+        .social-proof-section-title {
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 2.25rem;
             line-height: 2.5rem;
@@ -355,6 +356,7 @@ body {
             color: rgb(255, 255, 255);
             margin-bottom: 1rem;
             opacity: 1;
+            text-align: center;
         }
 
         .rating-summary {
@@ -493,7 +495,27 @@ body {
             padding-left: 1rem;
             padding-right: 1rem;
         }
-
+        
+        .services-section-subtitle {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgb(113, 113, 122);
+            margin-bottom: 1rem;
+            opacity: 1;
+        }
+        .services-section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+            color: rgb(255, 255, 255);
+            opacity: 1;
+        }
         /* Header */
         .section-header {
             text-align: center;
@@ -511,7 +533,6 @@ body {
             margin-bottom: 1rem;
             opacity: 1;
         }
-
         .section-title {
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 2.25rem;
@@ -522,7 +543,6 @@ body {
             color: rgb(255, 255, 255);
             opacity: 1;
         }
-
         /* Services Grid */
         .services-grid {
             display: grid;
@@ -834,7 +854,7 @@ body {
             color: rgb(113, 113, 122);
             margin-bottom: 1rem;
             opacity: 1;
-            text-align: center;
+            text-align: left;
         }
 
         .section-title {
@@ -847,7 +867,7 @@ body {
             color: rgb(255, 255, 255);
             margin-bottom: 1rem;
             opacity: 1;
-            text-align: center;
+            text-align: left;
         }
 
         .section-description {
@@ -897,7 +917,6 @@ body {
         .info-content {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
         }
 
         .info-item {
@@ -924,7 +943,7 @@ body {
         }
 
         .info-text h3 {
-            font-family: 'barlow';
+            font-family: 'Barlow Condensed', sans-serif;
             color: rgb(255, 255, 255);
             font-weight: 700;
             font-size: 1.125rem;
@@ -1036,7 +1055,7 @@ body {
         /* CTA Section */
         .cta-section {
             background-color: rgb(37, 99, 235);
-            padding: 5rem 0;
+            padding: 4.5rem 0;
             
         }
 
@@ -1068,7 +1087,7 @@ body {
 
         /* Description */
         .cta-description {
-            font-size: 1.25rem;
+            font-size: 20px;
             line-height: 1.75rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 2.5rem;
@@ -1091,7 +1110,6 @@ body {
             gap: 0.75rem;
             height: 4rem;
             padding: 0.5rem 3rem;
-            border-radius: 0.25rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -1102,6 +1120,7 @@ body {
             cursor: pointer;
             border: none;
             text-decoration: none;
+            
         }
 
         /* WhatsApp Button */
@@ -1109,7 +1128,8 @@ body {
             background-color: rgb(37, 211, 102);
             color: rgb(255, 255, 255);
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-        }
+            font-family: 'Manrope';
+          }
 
         .button-whatsapp:hover {
             background-color: rgb(32, 189, 90);
