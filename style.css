@@ -394,7 +394,7 @@ body {
         .reviews-carousel {
             display: flex;
             gap: 24px;
-            overflow-x: auto;
+            overflow-x: hidden;
             scroll-snap-type: x proximity;
             padding-bottom: 16px;
             scroll-behavior: smooth;
@@ -408,7 +408,7 @@ body {
         }
 
         .review-card-wrapper {
-            flex: 0 0 calc(50% - 12px); /* 2 por vez no desktop */
+            flex: 0 0 100%; 
             scroll-snap-align: center;
             scroll-snap-align: always;
 
