@@ -44,7 +44,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("image5.webp");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("image/image-hero-desktop.webp");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
