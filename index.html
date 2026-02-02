@@ -67,7 +67,7 @@
                             Chamar no WhatsApp
                         </button>
                     </a>
-                    <a href="https://www.google.com/maps/place/R.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.google.com/maps/dir//R.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184/@-21.2405222,-48.3216374,16.96z/data=!4m18!1m8!3m7!1s0x94b96b86278f2caf:0x5e99f7d541abf240!2sR.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184!3b1!8m2!3d-21.2390572!4d-48.3222506!16s%2Fg%2F11c26zmkbm!4m8!1m0!1m5!1m1!1s0x94b96b86278f2caf:0x5e99f7d541abf240!2m2!1d-48.3222506!2d-21.2390572!3e0?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                         <button class="button button-directions">
                             <svg class="button-icon-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
@@ -500,7 +500,7 @@
                             </div>
 
                             <!-- Directions Button -->
-                            <a href="https://www.google.com/maps/dir//R.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184/@-21.2390572,-48.3222506,17z/data=!4m18!1m8!3m7!1s0x94b96b86278f2caf:0x5e99f7d541abf240!2sR.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184!3b1!8m2!3d-21.2390572!4d-48.3222506!16s%2Fg%2F11c26zmkbm!4m8!1m0!1m5!1m1!1s0x94b96b86278f2caf:0x5e99f7d541abf240!2m2!1d-48.3222506!2d-21.2390572!3e0?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="button-wrapper">
+                            <a href="https://www.google.com/maps/dir//R.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184/@-21.2405222,-48.3216374,16.96z/data=!4m18!1m8!3m7!1s0x94b96b86278f2caf:0x5e99f7d541abf240!2sR.+Jo%C3%A3o+Alberto+Gerbasi,+60+-+Parque+dos+Laranjais,+Jaboticabal+-+SP,+14882-184!3b1!8m2!3d-21.2390572!4d-48.3222506!16s%2Fg%2F11c26zmkbm!4m8!1m0!1m5!1m1!1s0x94b96b86278f2caf:0x5e99f7d541abf240!2m2!1d-48.3222506!2d-21.2390572!3e0?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="button-wrapper">
                                 <button class="directions-button">
                                     <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
@@ -593,141 +593,194 @@
         </div>
     </footer>
     <script>
-            document.addEventListener("DOMContentLoaded", () => {
-            const carousel = document.querySelector(".reviews-carousel");
-            const cards = document.querySelectorAll(".review-card-wrapper");
-            const dotsContainer = document.querySelector(".carousel-dots");
-            const prevBtn = document.querySelector(".carousel-arrow.prev");
-            const nextBtn = document.querySelector(".carousel-arrow.next");
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.querySelector(".reviews-carousel");
+  const cards = document.querySelectorAll(".review-card-wrapper");
+  const dotsContainer = document.querySelector(".carousel-dots");
+  const prevBtn = document.querySelector(".carousel-arrow.prev");
+  const nextBtn = document.querySelector(".carousel-arrow.next");
 
-            if (!carousel || !cards.length || !dotsContainer) return;
+  if (!carousel || !cards.length || !dotsContainer) return;
 
-            let cardsPerView = 1;
-            let totalPages = 1;
-            let currentPage = 0;
+  let cardsPerView = 1;
+  let totalPages = 1;
+  let currentPage = 0;
 
-            // =========================
-            // Helpers
-            // =========================
-            function getCardStep() {
-                const cardWidth = cards[0].offsetWidth;
-                const gap = 24; // MESMO gap do CSS
-                return cardWidth + gap;
-            }
+  // =========================
+  // Helpers
+  // =========================
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
 
-            function getPageOffset(index) {
-                return getCardStep() * cardsPerView * index;
-            }
+  function getCardWidth() {
+    return cards[0].offsetWidth;
+  }
 
-            function updateArrows() {
-                if (window.innerWidth <= 768) {
-                if (prevBtn) prevBtn.style.display = "none";
-                if (nextBtn) nextBtn.style.display = "none";
-                return;
-                }
+  function getGap() {
+    return 24; // gap definido no CSS
+  }
 
-                if (prevBtn) prevBtn.style.display = currentPage === 0 ? "none" : "flex";
-                if (nextBtn) nextBtn.style.display = currentPage === totalPages - 1 ? "none" : "flex";
-            }
+  function getScrollPosition() {
+    return carousel.scrollLeft;
+  }
 
-            function updateDots(index) {
-                const dots = dotsContainer.querySelectorAll(".carousel-dot");
-                dots.forEach((dot, i) => {
-                dot.classList.toggle("active", i === index);
-                });
-            }
+  function updateArrows() {
+    if (isMobile()) {
+      if (prevBtn) prevBtn.style.display = "none";
+      if (nextBtn) nextBtn.style.display = "none";
+      return;
+    }
 
-            function goToPage(index) {
-                carousel.scrollTo({
-                left: getPageOffset(index),
-                behavior: "smooth"
-                });
+    // Desktop
+    if (prevBtn) prevBtn.style.display = currentPage === 0 ? "none" : "flex";
+    if (nextBtn) nextBtn.style.display = currentPage === totalPages - 1 ? "none" : "flex";
+  }
 
-                currentPage = index;
-                updateDots(index);
-                updateArrows();
-            }
+  function updateDots(index) {
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
 
-            // =========================
-            // Criar dots
-            // =========================
-            function createDots() {
-                dotsContainer.innerHTML = "";
+  function goToPage(index) {
+    if (index < 0 || index >= totalPages) return;
+    
+    const cardWidth = getCardWidth();
+    const gap = getGap();
+    const scrollAmount = (cardWidth + gap) * cardsPerView * index;
 
-                for (let i = 0; i < totalPages; i++) {
-                const dot = document.createElement("div");
-                dot.classList.add("carousel-dot");
-                if (i === 0) dot.classList.add("active");
-                dot.addEventListener("click", () => goToPage(i));
-                dotsContainer.appendChild(dot);
-                }
-            }
+    carousel.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
 
-            // =========================
-            // Mobile: snap card-a-card
-            // usando IntersectionObserver
-            // =========================
-            function setupObserver() {
-                if (window.innerWidth > 768) return;
+    currentPage = index;
+    updateDots(index);
+    updateArrows();
+  }
 
-                const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const index = Array.from(cards).indexOf(entry.target);
-                        currentPage = index;
-                        updateDots(index);
-                    }
-                    });
-                },
-                {
-                    root: carousel,
-                    threshold: 0.6
-                }
-                );
+  // =========================
+  // Detectar scroll manual (MOBILE e DESKTOP)
+  // =========================
+  function handleScroll() {
+    const scrollLeft = getScrollPosition();
+    const cardWidth = getCardWidth();
+    const gap = getGap();
+    
+    if (isMobile()) {
+      // Mobile: 1 card por vez
+      // Considera o snap para calcular qual card está visível
+      const stepSize = cardWidth + gap;
+      const newPage = Math.round(scrollLeft / stepSize);
+      
+      // Limita ao range válido
+      const validPage = Math.max(0, Math.min(newPage, totalPages - 1));
+      
+      if (validPage !== currentPage) {
+        currentPage = validPage;
+        updateDots(currentPage);
+      }
+    } else {
+      // Desktop: 2 cards por vez
+      const stepSize = (cardWidth + gap) * 2;
+      const newPage = Math.round(scrollLeft / stepSize);
+      
+      const validPage = Math.max(0, Math.min(newPage, totalPages - 1));
+      
+      if (validPage !== currentPage) {
+        currentPage = validPage;
+        updateDots(currentPage);
+        updateArrows();
+      }
+    }
+  }
 
-                cards.forEach(card => observer.observe(card));
-            }
+  // Evento de scroll com debounce
+  let scrollTimeout;
+  carousel.addEventListener("scroll", () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      handleScroll();
+    }, 100);
+  });
+  
+  // Também detecta quando o scroll termina (scrollend)
+  carousel.addEventListener("scrollend", () => {
+    handleScroll();
+  });
 
-            // =========================
-            // Setup principal
-            // =========================
-            function setupCarousel() {
-                cardsPerView = window.innerWidth > 768 ? 2 : 1;
-                totalPages = Math.ceil(cards.length / cardsPerView);
-                currentPage = 0;
+  // =========================
+  // Setup inicial
+  // =========================
+  function setupCarousel() {
+    cardsPerView = isMobile() ? 1 : 2;
+    totalPages = Math.ceil(cards.length / cardsPerView);
+    currentPage = 0;
 
-                createDots();
-                goToPage(0);
-                updateArrows();
-                setupObserver();
-            }
+    // Limpar dots existentes
+    dotsContainer.innerHTML = "";
 
-            // =========================
-            // Eventos
-            // =========================
-            if (nextBtn) {
-                nextBtn.addEventListener("click", () => {
-                if (currentPage < totalPages - 1) {
-                    goToPage(currentPage + 1);
-                }
-                });
-            }
+    // Criar dots
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("carousel-dot");
+      if (i === 0) dot.classList.add("active");
+      
+      // Dots clicáveis APENAS no desktop
+      if (!isMobile()) {
+        dot.style.cursor = "pointer";
+        dot.addEventListener("click", () => goToPage(i));
+      } else {
+        dot.style.cursor = "default";
+      }
+      
+      dotsContainer.appendChild(dot);
+    }
 
-            if (prevBtn) {
-                prevBtn.addEventListener("click", () => {
-                if (currentPage > 0) {
-                    goToPage(currentPage - 1);
-                }
-                });
-            }
+    // Reset scroll
+    carousel.scrollTo({ left: 0, behavior: "auto" });
+    
+    updateArrows();
+    updateDots(0);
+  }
 
-            window.addEventListener("resize", setupCarousel);
+  // =========================
+  // Setas (DESKTOP ONLY)
+  // =========================
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < totalPages - 1) {
+        goToPage(currentPage + 1);
+      }
+    });
+  }
 
-            // init
-            setupCarousel();
-            });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 0) {
+        goToPage(currentPage - 1);
+      }
+    });
+  }
+
+  // =========================
+  // Resize handler
+  // =========================
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      setupCarousel();
+    }, 200);
+  });
+
+  // Inicializar
+  setupCarousel();
+});
 </script>
+
 
 
 <script 
