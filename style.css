@@ -44,11 +44,20 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("image/image-hero.png");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("image/image-hero-desktop.png");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
         }
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero-section {
+                background-image:
+                    linear-gradient(rgba(0, 0, 0, 0.7), rgba(9, 9, 11, 0.95)), url("image/hero-mobile.webp");
+                background-attachment: scroll; /* MUITO importante */
+                }
+            }
+
 
         .hero-container {
             max-width: 80rem;
