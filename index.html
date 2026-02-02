@@ -593,110 +593,108 @@
         </div>
     </footer>
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.querySelector(".reviews-carousel");
-  const cards = document.querySelectorAll(".review-card-wrapper");
-  const dotsContainer = document.querySelector(".carousel-dots");
-  const prevBtn = document.querySelector(".carousel-arrow.prev");
-  const nextBtn = document.querySelector(".carousel-arrow.next");
+        document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.querySelector(".reviews-carousel");
+        const cards = document.querySelectorAll(".review-card-wrapper");
+        const dotsContainer = document.querySelector(".carousel-dots");
+        const prevBtn = document.querySelector(".carousel-arrow.prev");
+        const nextBtn = document.querySelector(".carousel-arrow.next");
 
-  if (!carousel || !cards.length) return;
+        if (!carousel || !cards.length) return;
 
-  let cardsPerView = 1;
-  let totalPages = 1;
-  let currentPage = 0;
+        let cardsPerView = 1;
+        let totalPages = 1;
+        let currentPage = 0;
 
-  // =========================
-  // Helpers
-  // =========================
-  function getPageWidth() {
-    const cardWidth = cards[0].offsetWidth;
-    const gap = 24; // mesmo gap do CSS
-    return (cardWidth + gap) * cardsPerView;
-  }
+        // =========================
+        // Helpers
+        // =========================
+        function getPageWidth() {
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 24; // mesmo gap do CSS
+            return (cardWidth + gap) * cardsPerView;
+        }
 
-  function updateArrows() {
-    if (window.innerWidth <= 768) {
-      prevBtn.style.display = "none";
-      nextBtn.style.display = "none";
-      return;
-    }
+        function updateArrows() {
+            if (window.innerWidth <= 768) {
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+            return;
+            }
 
-    prevBtn.style.display = currentPage === 0 ? "none" : "flex";
-    nextBtn.style.display = currentPage === totalPages - 1 ? "none" : "flex";
-  }
+            prevBtn.style.display = currentPage === 0 ? "none" : "flex";
+            nextBtn.style.display = currentPage === totalPages - 1 ? "none" : "flex";
+        }
 
-  function updateDots() {
-    const dots = document.querySelectorAll(".carousel-dot");
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentPage);
-    });
-  }
+        function updateDots() {
+            const dots = document.querySelectorAll(".carousel-dot");
+            dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentPage);
+            });
+        }
 
-  function goToPage(index) {
-    carousel.scrollTo({
-      left: getPageWidth() * index,
-      behavior: "smooth"
-    });
-    currentPage = index;
-    updateDots();
-    updateArrows();
-  }
+        function goToPage(index) {
+            carousel.scrollTo({
+            left: getPageWidth() * index,
+            behavior: "smooth"
+            });
+            currentPage = index;
+            updateDots();
+            updateArrows();
+        }
 
-  // =========================
-  // Setup principal
-  // =========================
-  function setupCarousel() {
-    cardsPerView = window.innerWidth > 768 ? 2 : 1;
-    totalPages = Math.ceil(cards.length / cardsPerView);
-    currentPage = 0;
+        // =========================
+        // Setup principal
+        // =========================
+        function setupCarousel() {
+            cardsPerView = window.innerWidth > 768 ? 2 : 1;
+            totalPages = Math.ceil(cards.length / cardsPerView);
+            currentPage = 0;
 
-    // recriar dots
-    dotsContainer.innerHTML = "";
-    for (let i = 0; i < totalPages; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("carousel-dot");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => goToPage(i));
-      dotsContainer.appendChild(dot);
-    }
+            // recriar dots
+            dotsContainer.innerHTML = "";
+            for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("carousel-dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => goToPage(i));
+            dotsContainer.appendChild(dot);
+            }
 
-    goToPage(0);
-    updateArrows();
-  }
+            goToPage(0);
+            updateArrows();
+        }
 
-  // =========================
-  // Eventos
-  // =========================
-  nextBtn?.addEventListener("click", () => {
-    if (currentPage < totalPages - 1) {
-      goToPage(currentPage + 1);
-    }
-  });
+        // =========================
+        // Eventos
+        // =========================
+        nextBtn?.addEventListener("click", () => {
+            if (currentPage < totalPages - 1) {
+            goToPage(currentPage + 1);
+            }
+        });
 
-  prevBtn?.addEventListener("click", () => {
-    if (currentPage > 0) {
-      goToPage(currentPage - 1);
-    }
-  });
+        prevBtn?.addEventListener("click", () => {
+            if (currentPage > 0) {
+            goToPage(currentPage - 1);
+            }
+        });
 
-  carousel.addEventListener("scroll", () => {
-    const newPage = Math.round(carousel.scrollLeft / getPageWidth());
-    if (newPage !== currentPage) {
-      currentPage = newPage;
-      updateDots();
-      updateArrows();
-    }
-  });
+        carousel.addEventListener("scroll", () => {
+            const newPage = Math.round(carousel.scrollLeft / getPageWidth());
+            if (newPage !== currentPage) {
+            currentPage = newPage;
+            updateDots();
+            updateArrows();
+            }
+        });
 
-  window.addEventListener("resize", setupCarousel);
+        window.addEventListener("resize", setupCarousel);
 
-  // init
-  setupCarousel();
-});
+        // init
+        setupCarousel();
+        });
 </script>
-
-
 
 <script 
 type="application/ld+json">

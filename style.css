@@ -397,11 +397,22 @@ body {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             padding-bottom: 16px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scroll-padding-left: 16px;
+            -ms-overflow-style: none; /* IE */
+            scrollbar-width: none;    /* Firefox */
         }
+        .reviews-carousel::-webkit-scrollbar {
+                display: none;
+        }
+
 
         .review-card-wrapper {
             flex: 0 0 calc(50% - 12px); /* 2 por vez no desktop */
             scroll-snap-align: start;
+            scroll-snap-align: start;
+
         }
 
         /* Mobile: 1 por vez */
@@ -418,6 +429,7 @@ body {
         .reviews-carousel {
             -ms-overflow-style: none;
             scrollbar-width: none;
+            
         }
         
         /*SETAS---------*/
@@ -456,14 +468,15 @@ body {
         .carousel-arrow.next {
             right: -22px;
         }
-        .reviews-carousel {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
 
-.review-card-wrapper {
-  scroll-snap-align: start;
-}
+        .reviews-carousel {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .review-card-wrapper {
+            scroll-snap-align: start;
+        }
 
 
         /*DOTS*/
